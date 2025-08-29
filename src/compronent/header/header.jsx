@@ -107,8 +107,7 @@ const Header = () => {
 
   return (
     <>
-      {/* Top Gradient Banner with Enhanced Design - Responsive */}
-      <div className={`bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 text-white text-xs sm:text-sm py-2 sm:py-3 px-2 sm:px-4 relative overflow-hidden transition-all duration-300 ${
+      <div className={`bg-gradient-to-r  from-emerald-600 via-green-600 to-teal-600 text-white text-xs sm:text-sm py-2 sm:py-3 px-2 sm:px-4 relative overflow-hidden transition-all duration-300 ${
         isScrolled ? 'h-0 py-0 opacity-0' : 'h-auto lg:h-[60px]'
       } hidden sm:block`}>
         {/* Animated background particles */}
@@ -154,7 +153,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Secondary Top Bar with Subtle Gradient - Responsive */}
+      {/* Secondary Top Bar */}
       <div className={`bg-gradient-to-r from-slate-50 to-gray-100 border-b border-gray-200/80 text-xs sm:text-sm py-2 sm:py-3 px-2 sm:px-4 backdrop-blur-sm transition-all duration-300 ${
         isScrolled ? 'h-0 py-0 opacity-0' : 'h-auto sm:h-[50px] lg:h-[80px]'
       } hidden sm:block`}>
@@ -234,7 +233,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main Header with Glass Effect - Fully Responsive */}
+      {/* Main Header */}
       <header className={`bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-40 border-b border-gray-200/50 transition-all duration-300 ${
         isScrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24 lg:h-[100px]'
       }`}>
@@ -263,7 +262,7 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Enhanced Search Bar - Responsive */}
+            {/* Enhanced Search Bar  */}
             <div className="hidden lg:flex flex-1 max-w-3xl mx-8">
               <div className="flex w-full shadow-lg rounded-2xl overflow-hidden border border-gray-200/60 bg-white/90 backdrop-blur-sm">
                 {/* Categories Button */}
@@ -341,18 +340,18 @@ const Header = () => {
             {/* Enhanced Right Side Icons - Fully Responsive */}
             <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
               {/* Account - Hidden on small screens */}
-              <div className="hidden lg:flex items-center space-x-2 text-gray-700 hover:text-emerald-600 transition-all duration-300 cursor-pointer group">
+              <Link href="/account" className="hidden lg:flex items-center space-x-2 text-gray-700 hover:text-emerald-600 transition-all duration-300 cursor-pointer group">
                 <div className="p-2 rounded-xl bg-gradient-to-r from-gray-100 to-gray-50 group-hover:from-emerald-100 group-hover:to-teal-100 transition-all duration-300 shadow-sm">
                   <User size={18} className="group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
                   <div className="text-xs text-gray-500 font-medium">Account</div>
                 </div>
-              </div>
+              </Link>
 
               {/* Wishlist - Responsive */}
               <div className="relative cursor-pointer group">
-                <div className="flex items-center space-x-1 sm:space-x-2 text-gray-700 group-hover:text-emerald-600 transition-all duration-300">
+                <Link href="/wishlist" className="flex items-center space-x-1 sm:space-x-2 text-gray-700 group-hover:text-emerald-600 transition-all duration-300">
                   <div className="relative p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-gradient-to-r from-gray-100 to-gray-50 group-hover:from-pink-100 group-hover:to-rose-100 transition-all duration-300 shadow-sm">
                     <Heart size={16} className="sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300 group-hover:text-pink-600" />
                     {wishlistCount > 0 && (
@@ -364,12 +363,12 @@ const Header = () => {
                   <div className="hidden sm:block lg:block">
                     <div className="text-xs text-gray-500 font-medium">Wishlist</div>
                   </div>
-                </div>
+                </Link>
               </div>
 
               {/* Cart - Responsive */}
               <div className="relative cursor-pointer group">
-                <div className="flex items-center space-x-1 sm:space-x-2 text-gray-700 group-hover:text-emerald-600 transition-all duration-300">
+                <Link href='/addtocart' className="flex items-center space-x-1 sm:space-x-2 text-gray-700 group-hover:text-emerald-600 transition-all duration-300">
                   <div className="relative p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-gradient-to-r from-gray-100 to-gray-50 group-hover:from-emerald-100 group-hover:to-teal-100 transition-all duration-300 shadow-sm">
                     <ShoppingCart size={16} className="sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
                     {cartCount > 0 && (
@@ -381,7 +380,7 @@ const Header = () => {
                   <div className="hidden sm:block lg:block">
                     <div className="text-xs text-gray-500 font-medium">Cart</div>
                   </div>
-                </div>
+                </Link>
               </div>
 
               {/* Mobile Menu Button */}
