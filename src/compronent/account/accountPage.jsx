@@ -21,6 +21,7 @@ import {
   Plus,
   Trash2
 } from 'lucide-react';
+import Link from 'next/link';
 
 const AccountPage = () => {
   const [activeTab, setActiveTab] = useState('profile');
@@ -117,10 +118,10 @@ const AccountPage = () => {
   const TabButton = ({ id, icon: Icon, label, count }) => (
     <button
       onClick={() => setActiveTab(id)}
-      className={`flex items-center space-x-3 w-full px-4 py-3 rounded-xl transition-all duration-300 group ${
+      className={`flex items-center cursor-pointer space-x-3 w-full px-4 py-3 rounded-xl transition-all duration-300 group ${
         activeTab === id 
-          ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg transform scale-105' 
-          : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
+          ? 'bg-gradient-to-r  from-emerald-600 via-green-600 to-teal-600 text-white shadow-lg transform scale-105' 
+          : 'text-gray-600 hover:bg-gray-50 hover:text-teal-600'
       }`}
     >
       <Icon className={`w-5 h-5 transition-transform duration-300 ${
@@ -155,12 +156,12 @@ const AccountPage = () => {
               {/* Profile Card */}
               <div className="text-center mb-8">
                 <div className="relative inline-block">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                  <div className="w-24 h-24 cursor-pointer bg-gradient-to-r   from-emerald-600 via-green-600 to-teal-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
                     {profileData.name.charAt(0)}
                   </div>
                   <button 
                     onClick={() => setShowImageUpload(true)}
-                    className="absolute -bottom-2 -right-2 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+                    className="absolute cursor-pointer -bottom-2 -right-2 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
                   >
                     <Camera className="w-4 h-4 text-gray-600" />
                   </button>
@@ -170,7 +171,7 @@ const AccountPage = () => {
               </div>
 
               {/* Navigation */}
-              <nav className="space-y-2">
+              <nav className="space-y-2 ">
                 <TabButton id="profile" icon={User} label="Profile" />
                 <TabButton id="orders" icon={Package} label="Orders" count="3" />
                 <TabButton id="wishlist" icon={Heart} label="Wishlist" count="2" />
@@ -194,14 +195,14 @@ const AccountPage = () => {
                     </div>
                     <button
                       onClick={() => isEditing ? handleSave() : setIsEditing(true)}
-                      className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                      className={`flex items-center  cursor-pointer space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                         isEditing 
-                          ? 'bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1' 
-                          : 'bg-blue-500 hover:bg-blue-600 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1'
+                          ? 'bg-teal-500 hover:bg-teal-800 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1' 
+                          : 'bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1'
                       }`}
                     >
                       {isEditing ? <Save className="w-4 h-4" /> : <Edit3 className="w-4 h-4" />}
-                      <span>{isEditing ? 'Save Changes' : 'Edit Profile'}</span>
+                      <span className=' hidden md:block'>{isEditing ? 'Save Changes' : 'Edit Profile'}</span>
                     </button>
                   </div>
 
@@ -215,7 +216,7 @@ const AccountPage = () => {
                           value={profileData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
                           disabled={!isEditing}
-                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-green-500 transition-all duration-300 ${
                             !isEditing ? 'bg-gray-50' : 'bg-white hover:border-gray-300'
                           }`}
                         />
@@ -231,7 +232,7 @@ const AccountPage = () => {
                           value={profileData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
                           disabled={!isEditing}
-                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-teal-500 transition-all duration-300 ${
                             !isEditing ? 'bg-gray-50' : 'bg-white hover:border-gray-300'
                           }`}
                         />
@@ -247,7 +248,7 @@ const AccountPage = () => {
                           value={profileData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
                           disabled={!isEditing}
-                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-green-500 transition-all duration-300 ${
                             !isEditing ? 'bg-gray-50' : 'bg-white hover:border-gray-300'
                           }`}
                         />
@@ -263,7 +264,7 @@ const AccountPage = () => {
                           value={profileData.dateOfBirth}
                           onChange={(e) => handleInputChange('dateOfBirth', e.target.value)}
                           disabled={!isEditing}
-                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-teal-500 transition-all duration-300 ${
                             !isEditing ? 'bg-gray-50' : 'bg-white hover:border-gray-300'
                           }`}
                         />
@@ -279,7 +280,7 @@ const AccountPage = () => {
                           onChange={(e) => handleInputChange('address', e.target.value)}
                           disabled={!isEditing}
                           rows="3"
-                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 resize-none ${
+                          className={`w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-green-500 transition-all duration-300 resize-none ${
                             !isEditing ? 'bg-gray-50' : 'bg-white hover:border-gray-300'
                           }`}
                         />
@@ -314,7 +315,7 @@ const AccountPage = () => {
                               className="w-12 h-12 rounded-lg object-cover"
                             />
                             <div>
-                              <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                              <h3 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">
                                 Order {order.id}
                               </h3>
                               <p className="text-sm text-gray-500">
@@ -327,7 +328,7 @@ const AccountPage = () => {
                               {order.status}
                             </span>
                             <span className="font-bold text-lg text-gray-900">{order.total}</span>
-                            <button className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">
+                            <button className="p-2 text-gray-400 cursor-pointer hover:text-teal-600 hover:bg-blue-50 rounded-lg transition-all duration-300">
                               <Eye className="w-5 h-5" />
                             </button>
                           </div>
@@ -348,9 +349,10 @@ const AccountPage = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {wishlist.map((item, index) => (
-                      <div 
+                      <Link
+                        href={`/productdetails/${item.id}`} 
                         key={item.id}
-                        className="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300 group hover:border-blue-300"
+                        className="border cursor-pointer border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300 group hover:border-blue-300"
                         style={{
                           animation: `slideIn 0.5s ease-out ${index * 0.1}s both`
                         }}
@@ -359,9 +361,9 @@ const AccountPage = () => {
                           <img 
                             src={item.image} 
                             alt={item.name}
-                            className="w-full h-40 object-cover rounded-lg mb-4"
+                            className="w-full  h-40 object-cover rounded-lg mb-4"
                           />
-                          <button className="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110">
+                          <button className="absolute cursor-pointer top-2 right-2 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110">
                             <X className="w-4 h-4 text-gray-600" />
                           </button>
                         </div>
@@ -370,14 +372,14 @@ const AccountPage = () => {
                         </h3>
                         <p className="text-lg font-bold text-blue-600 mb-3">{item.price}</p>
                         <div className="flex space-x-2">
-                          <button className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+                          <button className="flex-1 cursor-pointer bg-teal-500 hover:bg-green-600 text-white py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
                             Add to Cart
                           </button>
-                          <button className="p-2 border border-gray-200 rounded-lg hover:border-red-300 hover:text-red-500 transition-all duration-300">
+                          <button className="p-2 border cursor-pointer border-gray-200 rounded-lg hover:border-red-300 hover:text-red-500 transition-all duration-300">
                             <Trash2 className="w-5 h-5" />
                           </button>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -391,7 +393,7 @@ const AccountPage = () => {
                       <h2 className="text-2xl font-bold text-gray-900">Saved Addresses</h2>
                       <p className="text-gray-600">Manage your delivery addresses</p>
                     </div>
-                    <button className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+                    <button className="flex items-center cursor-pointer space-x-2 bg-teal-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
                       <Plus className="w-4 h-4" />
                       <span>Add Address</span>
                     </button>
@@ -422,10 +424,10 @@ const AccountPage = () => {
                             </div>
                           </div>
                           <div className="flex space-x-2">
-                            <button className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">
+                            <button className="p-2 text-gray-400 cursor-pointer hover:text-teal-600 hover:bg-blue-50 rounded-lg transition-all duration-300">
                               <Edit3 className="w-4 h-4" />
                             </button>
-                            <button className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-300">
+                            <button className="p-2 text-gray-400 cursor-pointer hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-300">
                               <Trash2 className="w-4 h-4" />
                             </button>
                           </div>
@@ -444,7 +446,7 @@ const AccountPage = () => {
                       <h2 className="text-2xl font-bold text-gray-900">Payment Methods</h2>
                       <p className="text-gray-600">Manage your payment options</p>
                     </div>
-                    <button className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+                    <button className="flex cursor-pointer items-center space-x-2 bg-teal-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
                       <Plus className="w-4 h-4" />
                       <span>Add Card</span>
                     </button>
@@ -478,8 +480,8 @@ const AccountPage = () => {
                           <div key={setting.id} className="flex items-center justify-between">
                             <span className="text-gray-700">{setting.label}</span>
                             <button
-                              className={`w-12 h-6 rounded-full transition-all duration-300 ${
-                                setting.enabled ? 'bg-blue-500' : 'bg-gray-300'
+                              className={`w-12 h-6 cursor-pointer rounded-full transition-all duration-300 ${
+                                setting.enabled ? 'bg-teal-500' : 'bg-gray-300'
                               }`}
                             >
                               <div className={`w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-300 ${

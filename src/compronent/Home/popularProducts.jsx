@@ -13,6 +13,7 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import { products } from "@/src/data/productdata/popularProduct";
+import Link from "next/link";
 
 const PopularProducts = () => {
   const [activeCategory, setActiveCategory] = useState("FASHION");
@@ -51,14 +52,14 @@ const PopularProducts = () => {
           Popular Products
         </h2>
 
-        <div className="flex items-center justify-center gap-3 overflow-x-auto scrollbar-hide">
+        <div className="flex items-center  justify-center gap-3 overflow-x-auto scrollbar-hide">
           {categories.map((category, index) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-medium transition-all duration-300 whitespace-nowrap ${
+              className={`flex cursor-pointer items-center space-x-2 px-5 py-3 rounded-xl font-medium transition-all duration-300 whitespace-nowrap ${
                 activeCategory === category.id
-                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                  ? "bg-gradient-to-r  from-emerald-600 via-green-600 text-white shadow-lg"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
               style={{
@@ -87,9 +88,10 @@ const PopularProducts = () => {
         {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {currentProducts.map((product, index) => (
-            <div
+            <Link
+              href={`/productdetails/${product.id}`}
               key={product.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group"
+              className="bg-white cursor-pointer rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group"
               style={{
                 animationDelay: `${index * 150}ms`,
                 animation: "fadeInUp 0.6s ease-out forwards",
@@ -139,7 +141,7 @@ const PopularProducts = () => {
                   <span>Add to Cart</span>
                 </button>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

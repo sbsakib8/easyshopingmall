@@ -19,6 +19,7 @@ import {
   Star,
   AlertCircle
 } from 'lucide-react';
+import Link from 'next/link';
 
 const ShoppingCartComponent = () => {
   const [cartItems, setCartItems] = useState([
@@ -28,7 +29,7 @@ const ShoppingCartComponent = () => {
       price: 4500,
       originalPrice: 5500,
       quantity: 1,
-      image: 'https://via.placeholder.com/120x120',
+      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop',
       color: 'Black',
       size: 'One Size',
       inStock: true,
@@ -41,7 +42,7 @@ const ShoppingCartComponent = () => {
       price: 12000,
       originalPrice: 15000,
       quantity: 2,
-      image: 'https://via.placeholder.com/120x120',
+      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
       color: 'Silver',
       size: '42mm',
       inStock: true,
@@ -54,7 +55,7 @@ const ShoppingCartComponent = () => {
       price: 2500,
       originalPrice: 3000,
       quantity: 1,
-      image: 'https://via.placeholder.com/120x120',
+      image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=300&fit=crop',
       color: 'Blue',
       size: 'Medium',
       inStock: false,
@@ -122,14 +123,14 @@ const ShoppingCartComponent = () => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="min-h-screen lg:mt-24 py-5 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen  lg:mt-24 py-5 bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 flex items-center">
-                <ShoppingCart className="w-8 h-8 mr-3 text-blue-600" />
+                <ShoppingCart className="w-8 h-8 mr-3 text-teal-600" />
                 Shopping Cart
               </h1>
               <p className="text-gray-600 mt-1">{totalItems} items in your cart</p>
@@ -139,7 +140,7 @@ const ShoppingCartComponent = () => {
                 <Shield className="w-4 h-4 mr-2" />
                 Secure Checkout
               </div>
-              <div className="flex items-center text-blue-600">
+              <div className="flex items-center text-teal-600">
                 <Truck className="w-4 h-4 mr-2" />
                 Free Shipping over ৳2000
               </div>
@@ -148,7 +149,7 @@ const ShoppingCartComponent = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className=" container mx-auto px-4 py-8">
         {cartItems.length === 0 ? (
           // Empty Cart State
           <div className="text-center py-16">
@@ -157,18 +158,19 @@ const ShoppingCartComponent = () => {
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
             <p className="text-gray-600 mb-8">Add some items to get started</p>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+            <button className="bg-teal-500 hover:bg-green-600 text-white px-8 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
               Continue Shopping
             </button>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Cart Items */}
-            <div className="lg:col-span-2 space-y-4">
+            <div className="lg:col-span-2  space-y-4">
               {cartItems.map((item, index) => (
+                <Link className=' space-y-10' href={`/productdetails/${item.id}`} key={item.id}>
                 <div 
-                  key={item.id}
-                  className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
+                  
+                  className="bg-white mt-10 cursor-pointer rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
                   style={{
                     animation: `slideIn 0.5s ease-out ${index * 0.1}s both`
                   }}
@@ -190,7 +192,7 @@ const ShoppingCartComponent = () => {
 
                     {/* Product Details */}
                     <div className="flex-1">
-                      <div className="flex justify-between items-start">
+                      <div className="flex justify-between flex-wrap items-start">
                         <div>
                           <h3 className="font-semibold text-lg text-gray-900 mb-1">{item.name}</h3>
                           <div className="flex items-center space-x-4 text-sm text-gray-600 mb-2">
@@ -211,12 +213,12 @@ const ShoppingCartComponent = () => {
 
                         {/* Actions */}
                         <div className="flex items-center space-x-2">
-                          <button className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all duration-300">
+                          <button className="p-2  text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all duration-300">
                             <Heart className="w-5 h-5" />
                           </button>
                           <button 
                             onClick={() => removeItem(item.id)}
-                            className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all duration-300"
+                            className="p-2 text-gray-400 cursor-pointer hover:text-red-500 hover:bg-red-50 rounded-lg transition-all duration-300"
                           >
                             <Trash2 className="w-5 h-5" />
                           </button>
@@ -243,7 +245,7 @@ const ShoppingCartComponent = () => {
                         <div className="flex items-center space-x-3">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-all duration-300"
+                            className="w-8 h-8 cursor-pointer rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-all duration-300"
                             disabled={!item.inStock}
                           >
                             <Minus className="w-4 h-4" />
@@ -251,7 +253,7 @@ const ShoppingCartComponent = () => {
                           <span className="font-semibold text-lg w-8 text-center">{item.quantity}</span>
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-all duration-300"
+                            className="w-8 h-8 cursor-pointer rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-all duration-300"
                             disabled={!item.inStock}
                           >
                             <Plus className="w-4 h-4" />
@@ -261,6 +263,7 @@ const ShoppingCartComponent = () => {
                     </div>
                   </div>
                 </div>
+                </Link>
               ))}
 
               {/* Suggested Items */}
@@ -277,10 +280,10 @@ const ShoppingCartComponent = () => {
                         alt="Suggested product"
                         className="w-full h-20 object-cover rounded-lg mb-2"
                       />
-                      <h4 className="text-sm font-medium text-gray-900 mb-1 group-hover:text-blue-600">
+                      <h4 className="text-sm font-medium text-gray-900 mb-1 group-hover:text-teal-600">
                         Product {i}
                       </h4>
-                      <p className="text-sm text-blue-600 font-bold">৳1,500</p>
+                      <p className="text-sm text-teal-600 font-bold">৳1,500</p>
                     </div>
                   ))}
                 </div>
@@ -297,7 +300,7 @@ const ShoppingCartComponent = () => {
                   {!showCouponInput && !appliedCoupon && (
                     <button
                       onClick={() => setShowCouponInput(true)}
-                      className="w-full flex items-center justify-center space-x-2 border-2 border-dashed border-gray-300 rounded-xl py-3 text-blue-600 hover:border-blue-400 transition-all duration-300"
+                      className="w-full flex cursor-pointer items-center justify-center space-x-2 border-2 border-dashed border-gray-300 rounded-xl py-3 text-teal-600 hover:border-green-400 transition-all duration-300"
                     >
                       <Tag className="w-4 h-4" />
                       <span>Have a coupon code?</span>
@@ -312,18 +315,18 @@ const ShoppingCartComponent = () => {
                           value={couponCode}
                           onChange={(e) => setCouponCode(e.target.value)}
                           placeholder="Enter coupon code"
-                          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                         />
                         <button
                           onClick={applyCoupon}
-                          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all duration-300"
+                          className="px-4 py-2 bg-teal-500 hover:bg-green-600 text-white rounded-lg font-medium transition-all duration-300"
                         >
                           Apply
                         </button>
                       </div>
                       <button
                         onClick={() => setShowCouponInput(false)}
-                        className="text-sm text-gray-500 hover:text-gray-700"
+                        className="text-sm cursor-pointer text-gray-500 hover:text-gray-700"
                       >
                         Cancel
                       </button>
@@ -341,7 +344,7 @@ const ShoppingCartComponent = () => {
                       </div>
                       <button
                         onClick={removeCoupon}
-                        className="text-green-600 hover:text-green-800"
+                        className="text-green-600 cursor-pointer hover:text-green-800"
                       >
                         <X className="w-4 h-4" />
                       </button>
@@ -389,10 +392,10 @@ const ShoppingCartComponent = () => {
                 {/* Delivery Info */}
                 <div className="bg-blue-50 rounded-xl p-4 mb-6">
                   <div className="flex items-start space-x-3">
-                    <Truck className="w-5 h-5 text-blue-600 mt-0.5" />
+                    <Truck className="w-5 h-5 text-teal-600 mt-0.5" />
                     <div>
-                      <p className="font-medium text-blue-900">Free Delivery</p>
-                      <p className="text-sm text-blue-700">
+                      <p className="font-medium text-teal-900">Free Delivery</p>
+                      <p className="text-sm text-teal-700">
                         {shipping === 0 ? 'Congratulations! You qualify for free shipping' : `Add ৳${(2000 - subtotal).toLocaleString()} more to get free shipping`}
                       </p>
                     </div>
@@ -406,7 +409,7 @@ const ShoppingCartComponent = () => {
                 </div>
 
                 {/* Checkout Button */}
-                <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                <button className="w-full cursor-pointer bg-gradient-to-r  from-emerald-600 via-green-600 to-teal-600 hover:from-teal-600 hover:to-green-700 text-white py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center space-x-2">
                   <CreditCard className="w-5 h-5" />
                   <span>Proceed to Checkout</span>
                   <ArrowRight className="w-5 h-5" />
@@ -425,7 +428,7 @@ const ShoppingCartComponent = () => {
                 </div>
 
                 {/* Continue Shopping */}
-                <button className="w-full mt-4 border border-gray-300 hover:border-blue-300 text-gray-700 hover:text-blue-600 py-3 rounded-xl font-medium transition-all duration-300">
+                <button className="w-full cursor-pointer mt-4 border border-gray-300 hover:border-blue-300 text-gray-700 hover:text-teal-600 py-3 rounded-xl font-medium transition-all duration-300">
                   Continue Shopping
                 </button>
               </div>

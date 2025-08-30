@@ -301,7 +301,7 @@ const ShopPage = () => {
         </div>
 
         {/* Top Filter Bar */}
-        <div className="bg-white rounded-lg shadow-md p-4 mb-6">
+        <div className="bg-white lg:mt-28 rounded-lg shadow-md p-4 mb-6">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
             <div className="flex items-center gap-4 flex-wrap">
               <span className="text-gray-600 font-medium">Showing {products.length} results</span>

@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import { Heart, ShoppingCart, Star, Trash2, Share2, Eye, Filter, Grid, List } from 'lucide-react';
+import Link from 'next/link';
 
 const WishlistComponent = () => {
   const [wishlistItems, setWishlistItems] = useState([
@@ -154,7 +155,7 @@ const WishlistComponent = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent mb-4 animate-fade-in">
+          <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r  from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent mb-4 animate-fade-in">
             My Wishlist
           </h1>
           <p className="text-gray-600 text-lg">
@@ -171,8 +172,8 @@ const WishlistComponent = () => {
                 onClick={() => setViewMode('grid')}
                 className={`p-2 rounded-lg transition-all duration-300 ${
                   viewMode === 'grid'
-                    ? 'bg-white shadow-md text-purple-600'
-                    : 'text-gray-600 hover:text-purple-600'
+                    ? 'bg-white shadow-md text-teal-600'
+                    : 'text-gray-600 hover:text-green-600'
                 }`}
               >
                 <Grid className="w-5 h-5" />
@@ -181,8 +182,8 @@ const WishlistComponent = () => {
                 onClick={() => setViewMode('list')}
                 className={`p-2 rounded-lg transition-all duration-300 ${
                   viewMode === 'list'
-                    ? 'bg-white shadow-md text-purple-600'
-                    : 'text-gray-600 hover:text-purple-600'
+                    ? 'bg-white shadow-md text-teal-600'
+                    : 'text-gray-600 hover:text-green-600'
                 }`}
               >
                 <List className="w-5 h-5" />
@@ -194,7 +195,7 @@ const WishlistComponent = () => {
               <select
                 value={filterBy}
                 onChange={(e) => setFilterBy(e.target.value)}
-                className="px-4 py-2 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                className="px-4 py-2 bg-white cursor-pointer border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300"
               >
                 <option value="all">All Categories</option>
                 <option value="electronics">Electronics</option>
@@ -206,7 +207,7 @@ const WishlistComponent = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                className="px-4 py-2 cursor-pointer bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300"
               >
                 <option value="newest">Newest First</option>
                 <option value="priceLow">Price: Low to High</option>
@@ -232,9 +233,10 @@ const WishlistComponent = () => {
               : 'grid-cols-1'
           }`}>
             {sortedAndFilteredItems().map((item, index) => (
-              <div
+              <Link
+               href={`/productdetails/${item.id}`}
                 key={item.id}
-                className={`group bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl hover:shadow-2xl border border-white/50 overflow-hidden transition-all duration-500 hover:scale-105 ${
+                className={`group cursor-pointer bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl hover:shadow-2xl border border-white/50 overflow-hidden transition-all duration-500 hover:scale-105 ${
                   animatingItems.has(item.id) ? 'animate-pulse opacity-50 scale-95' : ''
                 } ${viewMode === 'list' ? 'flex' : ''}`}
                 style={{
@@ -254,24 +256,24 @@ const WishlistComponent = () => {
                   
                   {/* Discount Badge */}
                   {item.discount && (
-                    <div className="absolute top-3 left-3 bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                    <div className="absolute top-3 left-3 bg-gradient-to-r  from-emerald-600 via-green-600 to-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
                       -{item.discount}%
                     </div>
                   )}
                   
                   {/* Stock Status */}
                   {!item.inStock && (
-                    <div className="absolute top-3 right-3 bg-gray-900/80 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute top-3 right-3 bg-red-700/80 text-white px-3 py-1 rounded-full text-sm font-medium">
                       Out of Stock
                     </div>
                   )}
 
                   {/* Quick Actions Overlay */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                    <button className="p-3 bg-white/90 rounded-full hover:bg-white hover:scale-110 transition-all duration-300">
+                    <button className="p-3 bg-white/90 cursor-pointer rounded-full hover:bg-white hover:scale-110 transition-all duration-300">
                       <Eye className="w-5 h-5 text-gray-800" />
                     </button>
-                    <button className="p-3 bg-white/90 rounded-full hover:bg-white hover:scale-110 transition-all duration-300">
+                    <button className="p-3 cursor-pointer bg-white/90 rounded-full hover:bg-white hover:scale-110 transition-all duration-300">
                       <Share2 className="w-5 h-5 text-gray-800" />
                     </button>
                   </div>
@@ -281,14 +283,14 @@ const WishlistComponent = () => {
                 <div className="p-6 flex-1">
                   <div className="flex justify-between items-start mb-3">
                     <div className="flex-1">
-                      <h3 className="font-semibold text-lg text-gray-800 group-hover:text-purple-600 transition-colors duration-300 line-clamp-2">
+                      <h3 className="font-semibold text-lg text-gray-800 group-hover:text-teal-600 transition-colors duration-300 line-clamp-2">
                         {item.name}
                       </h3>
                       <p className="text-sm text-gray-500 mt-1">{item.category}</p>
                     </div>
                     <button
                       onClick={() => removeFromWishlist(item.id)}
-                      className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-all duration-300"
+                      className="p-2 text-gray-400 cursor-pointer hover:text-red-500 hover:bg-red-50 rounded-full transition-all duration-300"
                     >
                       <Trash2 className="w-5 h-5" />
                     </button>
@@ -304,7 +306,7 @@ const WishlistComponent = () => {
 
                   {/* Price */}
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-2xl font-bold text-purple-600">
+                    <span className="text-2xl font-bold text-teal-600">
                       ${item.price}
                     </span>
                     {item.originalPrice && (
@@ -320,9 +322,9 @@ const WishlistComponent = () => {
                       data-cart-button={item.id}
                       onClick={() => addToCart(item)}
                       disabled={!item.inStock}
-                      className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold transition-all duration-300 ${
+                      className={`flex-1 cursor-pointer flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold transition-all duration-300 ${
                         item.inStock
-                          ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
+                          ? 'bg-gradient-to-r  from-emerald-600 via-green-600 to-teal-600 hover:from-teal-700 hover:to-green-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
                           : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                       }`}
                     >
@@ -331,19 +333,19 @@ const WishlistComponent = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
 
         {/* Summary Footer */}
         {wishlistItems.length > 0 && (
-          <div className="mt-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl shadow-2xl p-8 text-white text-center">
+          <div className="mt-12 bg-gradient-to-r  from-emerald-600 via-green-600 to-teal-600 rounded-3xl shadow-2xl p-8 text-white text-center">
             <h3 className="text-2xl font-bold mb-4">Ready to Shop?</h3>
             <p className="text-purple-100 mb-6">
               You have {wishlistItems.filter(item => item.inStock).length} items available in stock
             </p>
-            <button className="bg-white text-purple-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+            <button className="bg-white cursor-pointer text-teal-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg">
               Add All to Cart
             </button>
           </div>
