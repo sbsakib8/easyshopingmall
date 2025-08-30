@@ -51,8 +51,6 @@ const Header = () => {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Shop', href: '/shop' },
-    { name: 'Vendors', href: '/vendors' },
-    { name: 'Pages', href: 'pages' },
     { name: 'Blog', href: 'blog', badge: 'New' },
     { name: 'Dashboard', href: 'dashboard' },
     { name: 'Contact', href: 'contact' }
