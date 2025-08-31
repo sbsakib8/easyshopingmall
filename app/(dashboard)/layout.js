@@ -1,5 +1,4 @@
 import DashboardNebver from "@/src/dashboard/navber/nabverComponent";
-import LayoutWrapDashboard from "./LayoutWrapDashboard";
 
 export const metadata = {
   title: "Dashboard - EasyShoppingMall",
@@ -10,9 +9,9 @@ export default function DashboardLayout({ children }) {
   return (
     <html lang="en">
       <body>
-       <DashboardNebver/>
-       <LayoutWrapDashboard>{children}</LayoutWrapDashboard>
-       
+       <DashboardNebver>
+        {children}  
+        </DashboardNebver>     
       </body>
     </html>
   )

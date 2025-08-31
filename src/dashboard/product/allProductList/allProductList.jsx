@@ -169,104 +169,15 @@ const ProductDashboard = () => {
       {sidebarOpen && (
         <div 
           className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-40 animate-fadeIn"
-          onClick={() => setSidebarOpen(false)}
+          onClick={() => setSidebarOpen(true)}
         ></div>
       )}
 
-      {/* Sidebar */}
-      <div className={`fixed left-0 top-0 h-full w-72 bg-gradient-to-b from-gray-900/95 via-gray-800/95 to-black/95 backdrop-blur-xl border-r border-gray-700/50 z-50 transform transition-all duration-500 ease-out ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0 lg:w-20'
-      }`}>
-        <div className="flex items-center justify-between p-6 border-b border-gray-700/50">
-          <div className={`flex items-center space-x-3 ${!sidebarOpen ? 'lg:justify-center' : ''}`}>
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-              <Package className="w-6 h-6 text-white" />
-            </div>
-            <div className={`${!sidebarOpen ? 'lg:hidden' : ''}`}>
-              <h1 className="text-xl font-bold text-white">EcommercePro</h1>
-              <p className="text-xs text-gray-400">Admin Dashboard</p>
-            </div>
-          </div>
-          <button 
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="lg:hidden p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600/50 text-gray-300 transition-colors duration-300"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        <nav className="p-4 space-y-2">
-          {[
-            { icon: Home, label: 'Dashboard', active: false },
-            { icon: Package, label: 'Products', count: totalProducts, active: true },
-            { icon: ShoppingCart, label: 'Orders', count: 45 },
-            { icon: Users, label: 'Customers', count: 1250 },
-            { icon: Tag, label: 'Categories', count: totalCategories },
-            { icon: Settings, label: 'Settings' }
-          ].map((item, index) => (
-            <button
-              key={item.label}
-              className={`w-full flex items-center space-x-3 p-3 rounded-xl transition-all duration-300 transform hover:scale-105 group ${
-                item.active 
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30' 
-                  : 'text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-gray-700/50 hover:to-gray-600/50'
-              }`}
-            >
-              <item.icon className={`w-5 h-5 ${item.active ? 'text-white' : 'text-gray-400 group-hover:text-white'} transition-colors duration-300`} />
-              <span className={`font-medium ${!sidebarOpen ? 'lg:hidden' : ''}`}>
-                {item.label}
-              </span>
-              {item.count && (
-                <span className={`ml-auto text-xs font-bold px-2 py-1 rounded-full ${
-                  item.active ? 'bg-white/20 text-white' : 'bg-gray-600/50 text-gray-300'
-                } ${!sidebarOpen ? 'lg:hidden' : ''}`}>
-                  {item.count}
-                </span>
-              )}
-            </button>
-          ))}
-        </nav>
-      </div>
-
-      {/* Header */}
-      <div className={`fixed top-0 right-0 left-0 ${sidebarOpen ? 'lg:left-72' : 'lg:left-20'} bg-gradient-to-r from-gray-900/95 via-black/95 to-gray-900/95 backdrop-blur-xl border-b border-gray-700/50 z-30 transition-all duration-500`}>
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center space-x-4">
-            <button 
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="p-2 rounded-xl bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 transition-all duration-300 transform hover:scale-110"
-            >
-              <Menu className="w-5 h-5" />
-            </button>
-            <div>
-              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
-                Product Management
-              </h1>
-              <p className="text-xs sm:text-sm text-gray-400">Manage your product inventory</p>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-3">
-            <div className="hidden md:flex items-center space-x-2 text-gray-300">
-              <Clock className="w-4 h-4" />
-              <span className="text-sm">{currentTime.toLocaleTimeString('en-BD')}</span>
-            </div>
-            <button className="relative p-2 rounded-xl bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 transition-all duration-300 transform hover:scale-110">
-              <Bell className="w-5 h-5" />
-              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-            </button>
-            <button className="p-2 rounded-xl bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 transition-all duration-300 transform hover:scale-110">
-              <Settings className="w-5 h-5" />
-            </button>
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-sm">A</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      
+     
 
       {/* Main Content */}
-      <div className={`transition-all duration-500 ${sidebarOpen ? 'lg:ml-72' : 'lg:ml-20'} pt-20 p-4 sm:p-6 lg:p-8`}>
+      <div className={`transition-all lg:mt-20 duration-500 ${sidebarOpen ? 'lg:ml-20' : 'lg:ml-20'} pt-20 p-4 sm:p-6 lg:p-8`}>
         
         {/* Welcome Banner */}
         <div className="mb-8 animate-slideDown">
