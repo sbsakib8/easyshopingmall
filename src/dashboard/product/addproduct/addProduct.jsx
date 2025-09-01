@@ -24,7 +24,6 @@ const AddProductComponent = () => {
 
   const [newTag, setNewTag] = useState('');
   const [dragOver, setDragOver] = useState(false);
-   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const categories = [
     'Electronics', 'Fashion', 'Home & Garden', 'Sports', 'Books', 'Beauty', 
@@ -109,15 +108,8 @@ const AddProductComponent = () => {
 
   return (
     <div className="min-h-screen  bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
-        {/* Mobile Sidebar Overlay */}
-      {sidebarOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-40 animate-fadeIn"
-          onClick={() => setSidebarOpen(true)}
-        ></div>
-      )}
-
-      <div className={`transition-all lg:mt-20 duration-500 ${sidebarOpen ? 'lg:ml-72' : 'lg:ml-20'} pt-20 p-4 sm:p-6 lg:p-8`}>
+        {/* main section */}
+      <div className={`transition-all  duration-500 py-5 lg:ml-15 px-2 lg:px-9`}>
         {/* Header */}
         <div className="mb-8">
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 shadow-2xl">

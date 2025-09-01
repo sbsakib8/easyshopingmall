@@ -27,7 +27,6 @@ import {
   Clock,
 } from "lucide-react"
 import Link from "next/link"
-import LayoutWrapDashboard from "@/app/(dashboard)/LayoutWrapDashboard"
 
 const DashboardNebver = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -55,13 +54,14 @@ const DashboardNebver = ({ children }) => {
       id: "products",
       label: "Products",
       icon: Package,
+      path: "/dashboard/products/allproducts",
       submenu: [
-        { path: "products/allproducts", id: "11", label: "All Products", icon: Package },
-        { path: "products/addproduct", id: "12", label: "Add Product", icon: Plus },
-        { path: "products/categorieslist", id: "13", label: "Categories List", icon: Tag },
-        { path: "products/addcategorie", id: "14", label: "Add Categorie", icon: Tag },
-        { path: "products/brands", id: "15", label: "Brands", icon: Star },
-        { path: "products/inventory", id: "16", label: "Inventory", icon: BarChart3 },
+        { path: "products/allproducts", id: 11, label: "All Products", icon: Package },
+        { path: "products/addproduct", id: 12, label: "Add Product", icon: Plus },
+        { path: "products/categorieslist", id: 13, label: "Categories List", icon: Tag },
+        { path: "products/addcategorie", id: 14, label: "Add Categorie", icon: Tag },
+        { path: "products/brands", id: 15, label: "Brands", icon: Star },
+        { path: "products/inventory", id: 16, label: "Inventory", icon: BarChart3 },
       ],
     },
     {
@@ -69,10 +69,10 @@ const DashboardNebver = ({ children }) => {
       label: "Orders",
       icon: ShoppingCart,
       submenu: [
-        { path: "allproducts", id: "all-orders", label: "All Orders", icon: ShoppingCart },
-        { path: "allproducts", id: "pending-orders", label: "Pending Orders", icon: Clock },
-        { path: "allproducts", id: "shipped-orders", label: "Shipped Orders", icon: Truck },
-        { path: "allproducts", id: "returns", label: "Returns", icon: RefreshCw },
+        { path: "/order/allorders", id: 16, label: "All Orders", icon: ShoppingCart },
+        { path: "/order/pending-orders", id: 17, label: "Pending Orders", icon: Clock },
+        { path: "/order/shipped-orders", id: 18, label: "Shipped Orders", icon: Truck },
+        { path: "/order/returns", id: 19, label: "Returns", icon: RefreshCw },
       ],
     },
     {

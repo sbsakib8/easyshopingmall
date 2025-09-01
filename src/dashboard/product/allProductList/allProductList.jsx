@@ -1,16 +1,15 @@
 "use client";
 import React, { useState, useMemo, useEffect } from 'react';
 import { 
-  Search, Package, Tag, Grid, Eye, Edit, Trash2, Star, Home, Plus,
-  Filter, Download, RefreshCw, Menu, X, Bell, Settings,
-  TrendingUp, ArrowUp, ArrowDown, MoreVertical, ShoppingCart,
-  Users, DollarSign, Activity, Zap, Globe, Clock
+  Search, Package, Tag, Grid, Eye, Edit, Trash2, Star,  Plus,
+   Download, RefreshCw,
+  TrendingUp, ArrowUp,  MoreVertical, 
+   DollarSign, Activity, Zap, Globe,
 } from 'lucide-react';
 
 const ProductDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -164,20 +163,8 @@ const ProductDashboard = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl animate-float"></div>
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-cyan-600/3 to-blue-600/3 rounded-full blur-3xl animate-bounce-slow"></div>
       </div>
-
-      {/* Mobile Sidebar Overlay */}
-      {sidebarOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-40 animate-fadeIn"
-          onClick={() => setSidebarOpen(true)}
-        ></div>
-      )}
-
-      
-     
-
       {/* Main Content */}
-      <div className={`transition-all lg:mt-20 duration-500 ${sidebarOpen ? 'lg:ml-20' : 'lg:ml-20'} pt-20 p-4 sm:p-6 lg:p-8`}>
+      <div className={`transition-all  duration-500 lg:ml-15 py-5 px-2 lg:px-9`}>
         
         {/* Welcome Banner */}
         <div className="mb-8 animate-slideDown">

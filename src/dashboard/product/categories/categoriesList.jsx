@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { Edit, Trash2, Plus, Home, Search, Filter, Eye, MoreVertical } from 'lucide-react';
+import React, { useState } from 'react';
+import { Edit, Trash2, Plus, Home, Search, Filter, Eye } from 'lucide-react';
 
 const CategoriesList = () => {
   const [categories, setCategories] = useState([
@@ -74,7 +74,6 @@ const CategoriesList = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingCategory, setEditingCategory] = useState(null);
   const [filterStatus, setFilterStatus] = useState('all');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [newCategory, setNewCategory] = useState({
     name: '',
@@ -166,7 +165,7 @@ const CategoriesList = () => {
       </div>
       
       {/* main component */}
-      <div className={`transition-all duration-500 ${sidebarOpen ? 'lg:ml-20' : 'lg:ml-20'} pt-20 p-4 sm:p-6 lg:p-8`}>
+      <div className={`transition-all  duration-500 lg:ml-10 lg:px-9`}>
       
 
       <div className="p-6">
@@ -203,14 +202,14 @@ const CategoriesList = () => {
         </div>
 
         {/* Categories Table */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 overflow-hidden shadow-2xl">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 overflow-scroll shadow-2xl">
           {/* Table Header */}
-          <div className="bg-gradient-to-r from-blue-600/30 to-indigo-600/30 px-6 py-4">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 items-center text-sm font-semibold text-blue-200 uppercase tracking-wider">
+          <div className="bg-gradient-to-r  from-blue-600/30 to-indigo-600/30 px-6 py-4">
+            <div className=" flex justify-between  gap-4 items-center text-sm font-semibold text-blue-200 uppercase ">
               <div>Image</div>
               <div>Category</div>
-              <div className="hidden md:block">Color</div>
-              <div className="hidden md:block">Products</div>
+              <div className="">Color</div>
+              <div className="">Products</div>
               <div className="text-right">Action</div>
             </div>
           </div>
@@ -226,7 +225,7 @@ const CategoriesList = () => {
                   animation: 'slideInUp 0.6s ease-out forwards'
                 }}
               >
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 items-center">
+                <div className=" flex gap-4 items-center justify-between">
                   {/* Image */}
                   <div className="flex items-center">
                     <div 
@@ -254,7 +253,7 @@ const CategoriesList = () => {
                   </div>
 
                   {/* Color */}
-                  <div className="hidden md:block">
+                  <div className="">
                     <div className="flex items-center space-x-3">
                       <div 
                         className="w-8 h-8 rounded-lg border-2 border-white/20 shadow-lg"
@@ -265,7 +264,7 @@ const CategoriesList = () => {
                   </div>
 
                   {/* Products Count */}
-                  <div className="hidden md:block">
+                  <div className="">
                     <div className="text-white font-semibold">
                       {category.productsCount}
                     </div>

@@ -77,7 +77,6 @@ const AddCategoriesComponent = () => {
   const [viewMode, setViewMode] = useState('grid');
   const [expandedCategories, setExpandedCategories] = useState(new Set());
   const [showAddForm, setShowAddForm] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const iconOptions = ['📱', '👗', '🏠', '⚽', '📚', '💄', '🚗', '🧸', '🍔', '💊', '🎮', '🎵', '💼', '🌟', '🔧', '🎨', '🌿', '🍕'];
   const colorOptions = ['#3B82F6', '#EC4899', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4', '#84CC16', '#F97316', '#64748B'];
@@ -236,7 +235,7 @@ const AddCategoriesComponent = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 p-4 overflow-hidden">
-      <div className={`transition-all lg:mt-20 duration-500 ${sidebarOpen ? 'lg:ml-72' : 'lg:ml-20'} pt-20 p-4 sm:p-6 lg:p-8`}>
+      <div className={`transition-all  duration-500  lg:ml-10 lg:px-9`}>
         {/* Header */}
         <div className="mb-8">
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-6 shadow-2xl">
@@ -620,7 +619,7 @@ const AddCategoriesComponent = () => {
 
         {/* Categories Display */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white/20">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-white flex items-center">
               <Tag className="mr-3 text-blue-400" />
               Categories ({filteredCategories.length})
