@@ -60,7 +60,6 @@ const DashboardNebver = ({ children }) => {
         { path: "products/addproduct", id: 12, label: "Add Product", icon: Plus },
         { path: "products/categorieslist", id: 13, label: "Categories List", icon: Tag },
         { path: "products/addcategorie", id: 14, label: "Add Categorie", icon: Tag },
-        { path: "products/brands", id: 15, label: "Brands", icon: Star },
         { path: "products/inventory", id: 16, label: "Inventory", icon: BarChart3 },
       ],
     },
@@ -68,32 +67,34 @@ const DashboardNebver = ({ children }) => {
       id: "orders",
       label: "Orders",
       icon: ShoppingCart,
+      path: "/dashboard/order/allorders",
       submenu: [
         { path: "/order/allorders", id: 16, label: "All Orders", icon: ShoppingCart },
         { path: "/order/pending-orders", id: 17, label: "Pending Orders", icon: Clock },
         { path: "/order/shipped-orders", id: 18, label: "Shipped Orders", icon: Truck },
-        { path: "/order/returns", id: 19, label: "Returns", icon: RefreshCw },
       ],
     },
     {
       id: "customers",
       label: "Customers",
       icon: Users,
+       path: "/dashboard/customers/all-customers",
       submenu: [
-        { path: "allproducts", id: "all-customers", label: "All Customers", icon: Users },
-        { path: "allproducts", id: "customer-groups", label: "Customer Groups", icon: Users },
-        { path: "allproducts", id: "reviews", label: "Reviews", icon: MessageSquare },
+        { path: "/customers/all-customers", id: 19, label: "All Customers", icon: Users },
+        { path: "/customers/customer-groups", id: 20, label: "Customer Groups", icon: Users },
+        { path: "/customers/reviews", id: 22, label: "reviews", icon: MessageSquare },
       ],
     },
     {
       id: "analytics",
       label: "Analytics",
       icon: TrendingUp,
+      path: "/dashboard/analytics/sales-report",
       submenu: [
-        { path: "allproducts", id: "sales-report", label: "Sales Report", icon: BarChart3 },
-        { path: "allproducts", id: "product-analytics", label: "Product Analytics", icon: Package },
-        { path: "allproducts", id: "customer-analytics", label: "Customer Analytics", icon: Users },
-        { path: "allproducts", id: "traffic-analytics", label: "Traffic Analytics", icon: Globe },
+        { path: "/analytics/sales-report", id: 23, label: "Sales Report", icon: BarChart3 },
+        { path: "/analytics/product-analytics", id: 24, label: "Product Analytics", icon: Package },
+        { path: "/analytics/customer-analytics", id: 25, label: "Customer Analytics", icon: Users },
+        { path: "/analytics/traffic-analytics", id: 26, label: "Traffic Analytics", icon: Globe },
       ],
     },
     {
@@ -321,8 +322,8 @@ const DashboardNebver = ({ children }) => {
                     <TrendingUp className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-white">Upgrade to Pro</p>
-                    <p className="text-xs text-gray-300">Unlock premium features</p>
+                    <p className="text-sm font-bold text-white">EasyShoppingMall</p>
+                    <p className="text-xs text-gray-300">you can manage dashboard</p>
                   </div>
                 </div>
 

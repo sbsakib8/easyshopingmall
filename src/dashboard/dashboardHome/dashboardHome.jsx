@@ -21,7 +21,6 @@ import {
 } from "lucide-react"
 
 const DashboardHome = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true)
   const [currentTime, setCurrentTime] = useState(new Date())
 
   useEffect(() => {
@@ -110,7 +109,7 @@ const DashboardHome = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
       <main
-        className={`transition-all duration-500 ease-out ${sidebarOpen ? " ml-5 lg:ml-20" : "ml-0 md:ml-20"} mt-16 p-4 sm:p-6 lg:p-8`}
+        className={`transition-all  duration-500 lg:ml-15 py-5 px-2 lg:px-9`}
       >
         {/* Welcome Section */}
         <div className="mb-8 animate-fadeInDown">
@@ -431,7 +430,7 @@ const DashboardHome = () => {
             <input
               type="text"
               placeholder="Search anything..."
-              className="w-full pl-12 pr-4 py-4 rounded-2xl border-0 bg-white/5 backdrop-blur-xl text-gray-200 placeholder-gray-400 focus:bg-white/10 focus:outline-none focus:ring-4 focus:ring-gray-700/50 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 transition-all duration-300 border border-gray-800/30"
+              className="w-full pl-12 pr-4 py-4 rounded-2xl  bg-white/5 backdrop-blur-xl text-gray-200 placeholder-gray-400 focus:bg-white/10 focus:outline-none focus:ring-4 focus:ring-gray-700/50 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 transition-all duration-300 border border-gray-800/30"
             />
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gray-800/10 to-black/10 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
           </div>
