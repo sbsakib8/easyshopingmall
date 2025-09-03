@@ -45,13 +45,13 @@ const DashboardNebver = ({ children }) => {
 
   const menuItems = [
     {
-      id: "dashboard",
+      id: 1,
       label: "Dashboard",
       icon: Home,
       path: "/dashboard",
     },
     {
-      id: "products",
+      id: 2,
       label: "Products",
       icon: Package,
       path: "/dashboard/products/allproducts",
@@ -64,7 +64,7 @@ const DashboardNebver = ({ children }) => {
       ],
     },
     {
-      id: "orders",
+      id: 3,
       label: "Orders",
       icon: ShoppingCart,
       path: "/dashboard/order/allorders",
@@ -75,7 +75,7 @@ const DashboardNebver = ({ children }) => {
       ],
     },
     {
-      id: "customers",
+      id: 4,
       label: "Customers",
       icon: Users,
        path: "/dashboard/customers/all-customers",
@@ -86,7 +86,7 @@ const DashboardNebver = ({ children }) => {
       ],
     },
     {
-      id: "analytics",
+      id: 5,
       label: "Analytics",
       icon: TrendingUp,
       path: "/dashboard/analytics/sales-report",
@@ -98,28 +98,29 @@ const DashboardNebver = ({ children }) => {
       ],
     },
     {
-      id: "marketing",
-      label: "Marketing",
+      id: 6,
+      label: "Banners",
       icon: TrendingUp,
+      path: "/dashboard/banner/home-slider",
       submenu: [
-        { path: "allproducts", id: "campaigns", label: "Campaigns", icon: Mail },
-        { path: "allproducts", id: "coupons", label: "Coupons", icon: Tag },
-        { path: "allproducts", id: "banners", label: "Banners", icon: ImageIcon },
-        { path: "allproducts", id: "newsletters", label: "Newsletters", icon: Mail },
+        { path: "/banner/home-slider", id: 27, label: "Home Slider", icon: Mail },
+        { path: "/banner/center-banner", id: 28, label: "Center Banner", icon: Tag },
+        { path: "/banner/left-banner", id: 29, label: "Left Banner", icon: ImageIcon },
+        { path: "/banner/right-banner", id: 30, label: "Right Banner", icon: Mail },
       ],
     },
     {
-      id: "content",
+      id: 7,
       label: "Content",
       icon: FileText,
+      path: "/dashboard/content/blogs",
       submenu: [
-        { path: "allproducts", id: "pages", label: "Pages", icon: FileText },
-        { path: "allproducts", id: "blogs", label: "Blogs", icon: FileText },
-        { path: "allproducts", id: "media", label: "Media Library", icon: ImageIcon },
+        { path: "/content/blogs", id:31, label: "Blogs", icon: FileText },
+        { path: "/content/media-library", id: 32, label: "Media Library", icon: ImageIcon },
       ],
     },
     {
-      id: "settings",
+      id:8,
       label: "Settings",
       icon: Settings,
       submenu: [
