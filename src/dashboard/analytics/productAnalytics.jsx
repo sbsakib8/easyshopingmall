@@ -118,8 +118,8 @@ const ProductAnalytics = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 p-4 md:p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 p-4 md:p-6 overflow-hidden">
+      <div className="transition-all  duration-500 lg:ml-15 py-5 px-2 lg:px-9">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 animate-fade-in">
           <div>
@@ -187,7 +187,7 @@ const ProductAnalytics = () => {
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Sales Trend Chart */}
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:scale-102 hover:shadow-2xl animate-slide-in-left">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:scale-102 hover:shadow-2xl animate-slide-in-left overflow-scroll">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-white">Sales Trend</h3>
               <div className="flex space-x-2">
@@ -227,7 +227,7 @@ const ProductAnalytics = () => {
           </div>
 
           {/* Category Distribution */}
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:scale-102 hover:shadow-2xl animate-slide-in-right">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:scale-102 hover:shadow-2xl animate-slide-in-right overflow-scroll">
             <h3 className="text-xl font-bold text-white mb-6">Category Distribution</h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
@@ -283,9 +283,9 @@ const ProductAnalytics = () => {
           </div>
 
           {/* Conversion Rate Chart */}
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-500 animate-fade-in">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-500 animate-fade-in ">
             <h3 className="text-xl font-bold text-white mb-6">Conversion Rate</h3>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer className="overflow-scroll" width="100%" height={300}>
               <LineChart data={conversionData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                 <XAxis dataKey="day" stroke="#9CA3AF" />
@@ -316,7 +316,7 @@ const ProductAnalytics = () => {
           {/* Weekly Performance */}
           <div className="lg:col-span-2 bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-500 animate-slide-in-up">
             <h3 className="text-xl font-bold text-white mb-6">Weekly Performance</h3>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer className="overflow-scroll" width="100%" height={300}>
               <BarChart data={salesData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                 <XAxis dataKey="date" stroke="#9CA3AF" />

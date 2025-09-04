@@ -179,10 +179,10 @@ const ProductDashboard = () => {
             <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
-                  Welcome back, <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Admin</span>! 👋
+                 All Product <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Admin</span>
                 </h1>
                 <p className="text-gray-300 text-sm sm:text-base">
-                  Here's what's happening with your store today • {filteredProducts.length} products active
+                  EasyShoppingMall Admin Dashboard
                 </p>
               </div>
               <div className="mt-4 sm:mt-0 flex items-center space-x-4">

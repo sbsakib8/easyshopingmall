@@ -203,7 +203,7 @@ const CustomerAnalyticsDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-purple-900/10 to-pink-900/10" />
       <div
         className="absolute inset-0 opacity-30"
@@ -217,7 +217,7 @@ const CustomerAnalyticsDashboard = () => {
       <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-xl animate-float-slow" />
 
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-gradient-to-r from-slate-900/80 via-purple-900/80 to-slate-900/80 backdrop-blur-xl border-b border-white/10">
+      <header className="sticky top-0  bg-gradient-to-r from-slate-900/80 via-purple-900/80 to-slate-900/80 backdrop-blur-xl border-b border-white/10">
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="animate-fade-in">
@@ -245,7 +245,7 @@ const CustomerAnalyticsDashboard = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-8 relative z-10">
+      <main className="transition-all  duration-500 lg:ml-15 py-5 px-2 lg:px-9">
         {/* Navigation Tabs */}
         <div className="mb-12">
           <div className="flex flex-wrap gap-2 bg-white/5 p-2 rounded-2xl animate-fade-in backdrop-blur-sm border border-white/10">
@@ -320,7 +320,7 @@ const CustomerAnalyticsDashboard = () => {
             {/* Customer Growth Chart */}
             <section className="mb-16">
               <div
-                className="p-8 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-sm border border-white/20 rounded-3xl animate-slide-in-up shadow-2xl shadow-blue-500/10"
+                className="p-8 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-sm border border-white/20 rounded-3xl animate-slide-in-up shadow-2xl shadow-blue-500/10 overflow-scroll"
                 style={{ animationDelay: "700ms" }}
               >
                 <h3 className="text-2xl font-bold text-white mb-8">Customer Growth Trend</h3>
@@ -519,25 +519,7 @@ const CustomerAnalyticsDashboard = () => {
         )}
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-r from-slate-900/80 via-purple-900/80 to-slate-900/80 backdrop-blur-xl border-t border-white/10 mt-20">
-        <div className="container mx-auto px-6 py-12">
-          <div className="text-center">
-            <p className="text-gray-300 text-lg">© 2024 Ecommerce Customer Analytics Dashboard. All rights reserved.</p>
-            <div className="flex flex-wrap justify-center gap-8 mt-6">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 font-medium">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors duration-200 font-medium">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors duration-200 font-medium">
-                Support
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   )
 }

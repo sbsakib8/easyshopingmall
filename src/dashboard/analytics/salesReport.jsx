@@ -52,83 +52,136 @@ const SalesReportDashboard = () => {
 
   const StatCard = ({ title, value, change, icon, delay = 0 }) => (
     <div
-      className={`group relative p-8 bg-gradient-to-br from-gray-900 via-black to-gray-800 backdrop-blur-sm border border-gray-700/60 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-gray-900/50 transition-all duration-500 hover:-translate-y-1 animate-slide-in-up overflow-hidden`}
+      className={`group relative p-6 md:p-8 bg-gradient-to-br from-slate-900/95 via-purple-900/30 to-blue-900/40 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 hover:-translate-y-2 hover:scale-105 animate-slide-in-up overflow-hidden`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-800/30 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Animated background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-blue-600/10 to-cyan-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      
+      {/* Floating particles effect */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-2 -right-2 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse" />
+        <div className="absolute -bottom-3 -left-3 w-16 h-16 bg-gradient-to-br from-cyan-400/20 to-purple-400/20 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
 
       <div className="relative flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-gray-400 text-sm font-medium tracking-wide uppercase mb-3">{title}</p>
-          <p className="text-3xl font-bold text-white mb-2 tracking-tight">{value}</p>
-          <p className="text-emerald-400 text-sm font-semibold bg-emerald-900/30 px-3 py-1 rounded-full inline-block border border-emerald-700/50">
-            {change}
+          <p className=" text-xs md:text-sm font-semibold tracking-widest uppercase mb-3 bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text text-transparent">
+            {title}
           </p>
+          <p className="text-2xl md:text-3xl lg:text-4xl font-black  mb-3 tracking-tight bg-gradient-to-r from-white via-purple-100 to-cyan-100 bg-clip-text text-transparent">
+            {value}
+          </p>
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500/20 to-green-500/20 px-3 py-2 rounded-full border border-emerald-400/30 backdrop-blur-sm">
+            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+            <p className="text-emerald-300 text-xs md:text-sm font-bold">
+              {change}
+            </p>
+          </div>
         </div>
-        <div className="text-5xl opacity-30 group-hover:opacity-50  duration-300 group-hover:scale-110 transform transition-transform">
+        <div className="text-4xl md:text-5xl opacity-60 group-hover:opacity-90 transition-all duration-500 group-hover:scale-125 transform group-hover:rotate-12 filter drop-shadow-lg">
           {icon}
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white/70 to-gray-300/70 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+      {/* Bottom glow bar */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left rounded-full" />
+      
+      {/* Corner accent */}
+      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white/5 to-transparent rounded-bl-3xl" />
     </div>
   )
 
   const ChartBar = ({ height, label, value, delay = 0 }) => (
-    <div className="flex flex-col items-center space-y-3 group">
+    <div className="flex flex-col items-center space-y-3 group cursor-pointer">
       <div
-        className="relative w-10 bg-gray-800 rounded-t-xl overflow-hidden shadow-inner border border-gray-700"
-        style={{ height: "140px" }}
+        className="relative w-8 md:w-12 bg-gradient-to-b from-slate-800/50 to-slate-900/80 rounded-t-2xl overflow-hidden shadow-2xl border border-white/10 backdrop-blur-sm"
+        style={{ height: "120px" }}
       >
         <div
-          className="absolute bottom-0 w-full bg-gradient-to-t from-gray-600 via-gray-500 to-gray-400 rounded-t-xl transition-all duration-1000 ease-out group-hover:from-white/80 group-hover:via-gray-300 group-hover:to-gray-200 shadow-lg"
+          className="absolute bottom-0 w-full bg-gradient-to-t from-purple-500 via-blue-500 to-cyan-400 rounded-t-2xl transition-all duration-1500 ease-out group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-yellow-400 shadow-lg animate-slide-up"
           style={{
             height: `${height}%`,
             animationDelay: `${delay}ms`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-white/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/10 to-white/20 pointer-events-none" />
+        
+        {/* Glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-500/0 via-blue-500/20 to-cyan-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
       </div>
-      <span className="text-xs text-gray-400 font-medium">{label}</span>
-      <span className="text-xs font-bold text-gray-200 bg-gray-800/80 px-2 py-1 rounded-lg border border-gray-700">
-        {formatCurrency(value)}
+      
+      <span className="text-xs md:text-sm text-slate-300 font-semibold group-hover:text-white transition-colors duration-300">
+        {label}
       </span>
+      <div className="bg-gradient-to-r from-slate-800/80 to-slate-700/80 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-white/10 group-hover:border-purple-400/50 transition-all duration-300">
+        <span className="text-xs font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+          {typeof value === 'number' ? formatCurrency(value) : value}
+        </span>
+      </div>
     </div>
   )
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-20 h-20 border-4 border-gray-700 border-t-white rounded-full animate-spin mx-auto mb-6 shadow-lg"></div>
-          <p className="text-gray-300 animate-pulse text-lg font-medium">Loading Sales Report...</p>
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 flex items-center justify-center overflow-hidden relative">
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-blue-500/5 to-cyan-500/5 animate-pulse" />
+        
+        {/* Floating orbs */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl animate-bounce" />
+        <div className="absolute bottom-32 right-32 w-24 h-24 bg-cyan-500/10 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
+        
+        <div className="text-center relative z-10">
+          <div className="w-20 h-20 border-4 border-slate-600/50 border-t-purple-400 border-r-cyan-400 rounded-full animate-spin mx-auto mb-8 shadow-2xl shadow-purple-500/20"></div>
+          <p className=" animate-pulse text-lg md:text-xl font-bold bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text text-transparent">
+            Loading Sales Report...
+          </p>
+          <div className="mt-4 flex space-x-2 justify-center">
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" />
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+          </div>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 overflow-hidden">
-      {/* header */}
-      <header className="sticky top-0  bg-gradient-to-r from-black/90 via-gray-900/90 to-black/90 backdrop-blur-xl border-b border-gray-700/60 shadow-xl">
-        <div className=" mx-auto px-7 lg:px-28 py-6">
-          <div className="flex items-center justify-between">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 overflow-hidden relative">
+      {/* Animated background elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-blue-500/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+
+      {/* Header */}
+      <header className="sticky top-0  bg-gradient-to-r from-slate-900/95 via-purple-900/20 to-slate-900/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-purple-900/20">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 py-6 md:py-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between space-y-4 md:space-y-0">
             <div className="animate-fade-in">
-              <h1 className=" text-2xl lg:text-4xl font-bold text-white tracking-tight">Sales Dashboard</h1>
-              <p className="text-gray-300 mt-2 text-lg">Track your ecommerce performance with precision</p>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent tracking-tight">
+                Sales Dashboard
+              </h1>
+              <p className="text-slate-300/80 mt-2 text-sm md:text-lg font-medium">
+                Track your ecommerce performance with precision
+              </p>
             </div>
-            <div className="flex flex-col lg:flex-row gap-3 items-center space-x-4 animate-fade-in">
+            
+            <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center animate-fade-in">
               <select
                 value={selectedPeriod}
                 onChange={(e) => setSelectedPeriod(e.target.value)}
-                className="bg-gray-800 border border-gray-600 text-gray-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-200 shadow-sm font-medium"
+                className="bg-gradient-to-r from-slate-800/80 to-slate-700/80 backdrop-blur-sm border border-white/20 text-slate-200 px-4 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-purple-400/50 transition-all duration-300 shadow-lg font-semibold hover:border-cyan-400/50"
               >
                 <option value="7d">Last 7 days</option>
                 <option value="30d">Last 30 days</option>
                 <option value="90d">Last 90 days</option>
                 <option value="1y">Last year</option>
               </select>
-              <button className="bg-gradient-to-r from-gray-700 to-black hover:from-gray-600 hover:to-gray-800 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-600">
+              
+              <button className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 hover:from-purple-500 hover:via-blue-500 hover:to-cyan-500 text-white px-6 py-3 rounded-2xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 border border-white/20 backdrop-blur-sm">
                 Export Report
               </button>
             </div>
@@ -136,10 +189,13 @@ const SalesReportDashboard = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-10">
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-8 animate-fade-in">Key Performance Metrics</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <main className="transition-all  duration-500 lg:ml-15 py-5 px-2 lg:px-9">
+        {/* Key Performance Metrics */}
+        <section className="mb-12 md:mb-20">
+          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent mb-8 md:mb-12 animate-fade-in">
+            Key Performance Metrics
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             <StatCard
               title="Total Revenue"
               value={formatCurrency(mockSalesData.totalRevenue)}
@@ -171,18 +227,22 @@ const SalesReportDashboard = () => {
           </div>
         </section>
 
-        <section className="mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {/* Charts Section */}
+        <section className="mb-12 md:mb-20 ">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
             {/* Revenue Chart */}
             <div
-              className="p-8 bg-gradient-to-br from-gray-900 via-black to-gray-800 backdrop-blur-sm border border-gray-700/60 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-gray-900/50 transition-all duration-300 animate-slide-in-up"
+              className="p-6 md:p-10 bg-gradient-to-br from-slate-900/95 via-purple-900/20 to-blue-900/30 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 hover:-translate-y-1 animate-slide-in-up relative overflow-scroll"
               style={{ animationDelay: "500ms" }}
             >
-              <h3 className="text-xl font-bold text-white mb-8 flex items-center">
-                <span className="w-3 h-3 bg-white rounded-full mr-3"></span>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-cyan-500/5 opacity-0 hover:opacity-100 transition-opacity duration-700" />
+              
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-8 md:mb-10 flex items-center relative z-10">
+                <div className="w-4 h-4 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full mr-4 animate-pulse"></div>
                 Monthly Revenue Trends
               </h3>
-              <div className="flex items-end justify-between space-x-3 h-48 px-4">
+              
+              <div className="flex items-end justify-between space-x-2 md:space-x-4 h-48 px-2 md:px-6 relative z-10">
                 {mockSalesData.monthlyData.map((data, index) => (
                   <ChartBar
                     key={data.month}
@@ -197,14 +257,17 @@ const SalesReportDashboard = () => {
 
             {/* Orders Chart */}
             <div
-              className="p-8 bg-gradient-to-br from-gray-900 via-black to-gray-800 backdrop-blur-sm border border-gray-700/60 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-gray-900/50 transition-all duration-300 animate-slide-in-up"
+              className="p-6 md:p-10 bg-gradient-to-br from-slate-900/95 via-blue-900/20 to-purple-900/30 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 hover:-translate-y-1 animate-slide-in-up relative overflow-scroll"
               style={{ animationDelay: "600ms" }}
             >
-              <h3 className="text-xl font-bold text-white mb-8 flex items-center">
-                <span className="w-3 h-3 bg-gray-300 rounded-full mr-3"></span>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 hover:opacity-100 transition-opacity duration-700" />
+              
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-8 md:mb-10 flex items-center relative z-10">
+                <div className="w-4 h-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mr-4 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
                 Monthly Order Volume
               </h3>
-              <div className="flex items-end justify-between space-x-3 h-48 px-4">
+              
+              <div className="flex items-end justify-between space-x-2 md:space-x-4 h-48 px-2 md:px-6 relative z-10">
                 {mockSalesData.monthlyData.map((data, index) => (
                   <ChartBar
                     key={data.month}
@@ -219,31 +282,38 @@ const SalesReportDashboard = () => {
           </div>
         </section>
 
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+        {/* Products and Orders Section */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-20">
           {/* Top Products */}
           <div
-            className="p-8 bg-gradient-to-br from-gray-900 via-black to-gray-800 backdrop-blur-sm border border-gray-700/60 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-gray-900/50 transition-all duration-300 animate-slide-in-up"
+            className="p-6 md:p-10 bg-gradient-to-br from-slate-900/95 via-emerald-900/20 to-cyan-900/30 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl hover:shadow-emerald-500/20 transition-all duration-700 hover:-translate-y-1 animate-slide-in-up relative overflow-hidden"
             style={{ animationDelay: "800ms" }}
           >
-            <h3 className="text-xl font-bold text-white mb-8 flex items-center">
-              <span className="w-3 h-3 bg-emerald-400 rounded-full mr-3"></span>
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5 opacity-0 hover:opacity-100 transition-opacity duration-700" />
+            
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-8 md:mb-10 flex items-center relative z-10">
+              <div className="w-4 h-4 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full mr-4 animate-pulse"></div>
               Top Performing Products
             </h3>
-            <div className="space-y-4">
+            
+            <div className="space-y-4 md:space-y-6 relative z-10">
               {mockSalesData.topProducts.map((product, index) => (
                 <div
                   key={product.name}
-                  className="flex items-center justify-between p-5 bg-gray-800/60 rounded-xl hover:bg-gray-700/60 transition-all duration-200 hover:scale-[1.02] border border-gray-700"
+                  className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 md:p-6 bg-gradient-to-r from-slate-800/60 via-slate-700/40 to-slate-800/60 rounded-2xl hover:from-emerald-800/30 hover:via-slate-700/60 hover:to-cyan-800/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-white/10 hover:border-emerald-400/30 backdrop-blur-sm space-y-2 sm:space-y-0"
+                  style={{ animationDelay: `${900 + index * 100}ms` }}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-2 h-2 bg-gradient-to-r from-emerald-400 to-white rounded-full"></div>
+                    <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full animate-pulse"></div>
                     <div>
-                      <p className="font-semibold text-white">{product.name}</p>
-                      <p className="text-sm text-gray-400">{product.sales} units sold</p>
+                      <p className="font-bold text-white text-sm md:text-base">{product.name}</p>
+                      <p className="text-xs md:text-sm text-slate-300/80">{product.sales} units sold</p>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <p className="font-bold text-white text-lg">{formatCurrency(product.revenue)}</p>
+                  <div className="text-right ml-auto">
+                    <p className="font-black text-lg md:text-xl bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent">
+                      {formatCurrency(product.revenue)}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -252,37 +322,43 @@ const SalesReportDashboard = () => {
 
           {/* Recent Orders */}
           <div
-            className="p-8 bg-gradient-to-br from-gray-900 via-black to-gray-800 backdrop-blur-sm border border-gray-700/60 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-gray-900/50 transition-all duration-300 animate-slide-in-up"
+            className="p-6 md:p-10 bg-gradient-to-br from-slate-900/95 via-blue-900/20 to-purple-900/30 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 hover:-translate-y-1 animate-slide-in-up relative overflow-hidden"
             style={{ animationDelay: "900ms" }}
           >
-            <h3 className="text-xl font-bold text-white mb-8 flex items-center">
-              <span className="w-3 h-3 bg-gray-300 rounded-full mr-3"></span>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 hover:opacity-100 transition-opacity duration-700" />
+            
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-8 md:mb-10 flex items-center relative z-10">
+              <div className="w-4 h-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mr-4 animate-pulse" style={{ animationDelay: '0.3s' }}></div>
               Recent Order Activity
             </h3>
-            <div className="space-y-4">
+            
+            <div className="space-y-4 md:space-y-6 relative z-10">
               {mockSalesData.recentOrders.map((order, index) => (
                 <div
                   key={order.id}
-                  className="flex items-center justify-between p-5 bg-gray-800/60 rounded-xl hover:bg-gray-700/60 transition-all duration-200 hover:scale-[1.02] border border-gray-700"
+                  className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 md:p-6 bg-gradient-to-r from-slate-800/60 via-slate-700/40 to-slate-800/60 rounded-2xl hover:from-blue-800/30 hover:via-slate-700/60 hover:to-purple-800/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-white/10 hover:border-blue-400/30 backdrop-blur-sm space-y-3 sm:space-y-0"
+                  style={{ animationDelay: `${1000 + index * 100}ms` }}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-2 h-2 bg-gradient-to-r from-gray-400 to-white rounded-full"></div>
+                    <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse"></div>
                     <div>
-                      <p className="font-semibold text-white">{order.id}</p>
-                      <p className="text-sm text-gray-400">{order.customer}</p>
+                      <p className="font-bold text-white text-sm md:text-base">{order.id}</p>
+                      <p className="text-xs md:text-sm text-slate-300/80">{order.customer}</p>
                     </div>
                   </div>
-                  <div className="text-right flex items-center space-x-3">
-                    <p className="font-bold text-white text-lg">{formatCurrency(order.amount)}</p>
+                  <div className="flex flex-row sm:flex-col lg:flex-row items-start sm:items-end lg:items-center space-x-4 sm:space-x-0 lg:space-x-4 sm:space-y-2 lg:space-y-0">
+                    <p className="font-black text-lg md:text-xl bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
+                      {formatCurrency(order.amount)}
+                    </p>
                     <span
-                      className={`text-xs px-3 py-1.5 rounded-full font-semibold ${
+                      className={`text-xs px-3 py-2 rounded-full font-bold border backdrop-blur-sm whitespace-nowrap ${
                         order.status === "Completed"
-                          ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700"
+                          ? "bg-emerald-900/40 text-emerald-300 border-emerald-400/50"
                           : order.status === "Processing"
-                            ? "bg-amber-900/50 text-amber-300 border border-amber-700"
+                            ? "bg-amber-900/40 text-amber-300 border-amber-400/50"
                             : order.status === "Shipped"
-                              ? "bg-blue-900/50 text-blue-300 border border-blue-700"
-                              : "bg-gray-800/50 text-gray-300 border border-gray-600"
+                              ? "bg-blue-900/40 text-blue-300 border-blue-400/50"
+                              : "bg-slate-800/60 text-slate-300 border-slate-400/50"
                       }`}
                     >
                       {order.status}
@@ -294,31 +370,45 @@ const SalesReportDashboard = () => {
           </div>
         </section>
 
-        <section className="mb-16">
+        {/* Performance Insights */}
+        <section className="mb-12 md:mb-20">
           <div
-            className="p-10 bg-gradient-to-br from-gray-900/90 via-black to-gray-800/90 backdrop-blur-sm border border-gray-700/60 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-gray-900/50 transition-all duration-300 animate-slide-in-up"
+            className="p-8 md:p-12 lg:p-16 bg-gradient-to-br from-slate-900/95 via-purple-900/30 to-blue-900/40 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 hover:-translate-y-1 animate-slide-in-up relative overflow-hidden"
             style={{ animationDelay: "1000ms" }}
           >
-            <h3 className="text-2xl font-bold text-white mb-10 text-center">Performance Insights & Recommendations</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center p-8 bg-gray-800/40 rounded-2xl hover:bg-gray-700/40 transition-all duration-300 hover:scale-105 border border-gray-700 shadow-sm">
-                <div className="text-4xl mb-4">🚀</div>
-                <h4 className="font-bold text-white mb-3 text-lg">Growth Momentum</h4>
-                <p className="text-gray-300 text-sm leading-relaxed">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-blue-500/5 to-cyan-500/5 opacity-0 hover:opacity-100 transition-opacity duration-700" />
+            
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-center mb-12 md:mb-16 bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent relative z-10">
+              Performance Insights & Recommendations
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 relative z-10">
+              <div className="text-center p-6 md:p-10 bg-gradient-to-br from-slate-800/60 via-purple-800/20 to-slate-800/60 rounded-3xl hover:from-purple-800/40 hover:via-slate-700/60 hover:to-blue-800/40 transition-all duration-700 hover:scale-110 hover:shadow-2xl border border-white/10 hover:border-purple-400/30 backdrop-blur-sm transform hover:-rotate-1">
+                <div className="text-5xl md:text-6xl mb-6 filter drop-shadow-lg animate-bounce">🚀</div>
+                <h4 className="font-black  mb-4 text-lg md:text-xl bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+                  Growth Momentum
+                </h4>
+                <p className="text-slate-300/90 text-sm md:text-base leading-relaxed">
                   Revenue is up 12.5% compared to last month, showing strong growth momentum across all categories.
                 </p>
               </div>
-              <div className="text-center p-8 bg-gray-800/40 rounded-2xl hover:bg-gray-700/40 transition-all duration-300 hover:scale-105 border border-gray-700 shadow-sm">
-                <div className="text-4xl mb-4">🎯</div>
-                <h4 className="font-bold text-white mb-3 text-lg">Top Performer</h4>
-                <p className="text-gray-300 text-sm leading-relaxed">
+              
+              <div className="text-center p-6 md:p-10 bg-gradient-to-br from-slate-800/60 via-emerald-800/20 to-slate-800/60 rounded-3xl hover:from-emerald-800/40 hover:via-slate-700/60 hover:to-cyan-800/40 transition-all duration-700 hover:scale-110 hover:shadow-2xl border border-white/10 hover:border-emerald-400/30 backdrop-blur-sm transform hover:rotate-1">
+                <div className="text-5xl md:text-6xl mb-6 filter drop-shadow-lg animate-bounce" style={{ animationDelay: '0.5s' }}>🎯</div>
+                <h4 className="font-black  mb-4 text-lg md:text-xl bg-gradient-to-r from-white to-emerald-200 bg-clip-text text-transparent">
+                  Top Performer
+                </h4>
+                <p className="text-slate-300/90 text-sm md:text-base leading-relaxed">
                   Wireless Headphones are your best-selling product this month with exceptional conversion rates.
                 </p>
               </div>
-              <div className="text-center p-8 bg-gray-800/40 rounded-2xl hover:bg-gray-700/40 transition-all duration-300 hover:scale-105 border border-gray-700 shadow-sm">
-                <div className="text-4xl mb-4">💡</div>
-                <h4 className="font-bold text-white mb-3 text-lg">Strategic Recommendation</h4>
-                <p className="text-gray-300 text-sm leading-relaxed">
+              
+              <div className="text-center p-6 md:p-10 bg-gradient-to-br from-slate-800/60 via-blue-800/20 to-slate-800/60 rounded-3xl hover:from-blue-800/40 hover:via-slate-700/60 hover:to-purple-800/40 transition-all duration-700 hover:scale-110 hover:shadow-2xl border border-white/10 hover:border-blue-400/30 backdrop-blur-sm transform hover:-rotate-1">
+                <div className="text-5xl md:text-6xl mb-6 filter drop-shadow-lg animate-bounce" style={{ animationDelay: '1s' }}>💡</div>
+                <h4 className="font-black  mb-4 text-lg md:text-xl bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                  Strategic Recommendation
+                </h4>
+                <p className="text-slate-300/90 text-sm md:text-base leading-relaxed">
                   Consider increasing inventory for high-performing products to capitalize on current demand trends.
                 </p>
               </div>
@@ -327,7 +417,75 @@ const SalesReportDashboard = () => {
         </section>
       </main>
 
-     
+
+      {/* Custom Styles */}
+      <style jsx>{`
+        @keyframes slide-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes slide-up {
+          from {
+            height: 0%;
+          }
+          to {
+            height: var(--target-height);
+          }
+        }
+        
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
+        .animate-slide-in-up {
+          animation: slide-in-up 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-up {
+          animation: slide-up 1.5s ease-out forwards;
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 1s ease-out forwards;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: rgba(51, 65, 85, 0.3);
+          border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(180deg, #8b5cf6, #06b6d4);
+          border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(180deg, #7c3aed, #0891b2);
+        }
+        
+        /* Firefox */
+        * {
+          scrollbar-width: thin;
+          scrollbar-color: #8b5cf6 rgba(51, 65, 85, 0.3);
+        }
+      `}</style>
     </div>
   )
 }

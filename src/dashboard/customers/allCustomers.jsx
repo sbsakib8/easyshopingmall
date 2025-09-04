@@ -205,8 +205,14 @@ const mockCustomers = [
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
       <div className={`transition-all   duration-500 lg:ml-15 py-5 px-2 lg:px-9`}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-black/80 to-gray-900/80 backdrop-blur-sm border-b border-gray-700/50">
-        <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="relative bg-gradient-to-r from-gray-900/80 via-blue-900/80 to-purple-900/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-gray-700/50 shadow-2xl shadow-blue-500/10 overflow-hidden">
+      {/* Animated particles */}
+            <div className="absolute inset-0">
+              <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+              <div className="absolute bottom-6 left-6 w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-cyan-400 rounded-full animate-bounce"></div>
+            </div>
+        <div className="w-full mx-auto ">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h1 className="text-3xl font-bold text-white mb-2">All Customers</h1>
@@ -216,12 +222,12 @@ const mockCustomers = [
               <button
                 onClick={handleExportCustomers}
                 disabled={isLoading}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-600 text-white rounded-lg hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
+                className="flex items-center cursor-pointer gap-2 px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-600 text-white rounded-lg hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
               >
                 <Download className="w-4 h-4" />
                 {isLoading ? "Exporting..." : "Export"}
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105">
+              <button className="flex cursor-pointer items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105">
                 <Plus className="w-4 h-4" />
                 Add Customer
               </button>

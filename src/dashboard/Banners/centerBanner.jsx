@@ -134,13 +134,9 @@ const CenterBanner = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black  relative overflow-hidden">
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div
-          className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
+       
         <div
           className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-r from-emerald-500/15 to-teal-500/15 rounded-full blur-3xl animate-pulse"
           style={{ animationDelay: "2s" }}
@@ -161,12 +157,12 @@ const CenterBanner = () => {
         ></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
+      <div className="transition-all  duration-500 lg:ml-15 py-5 px-2 lg:px-9">
         <div className="mb-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div className="text-center sm:text-left">
               <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-pulse">
-                Banner Management
+               Center Banner Management
               </h1>
               <p className="text-gray-300 text-lg md:text-xl font-light">
                 Create stunning promotional banners with advanced controls

@@ -112,7 +112,13 @@ const AddProductComponent = () => {
       <div className={`transition-all  duration-500 py-5 lg:ml-15 px-2 lg:px-9`}>
         {/* Header */}
         <div className="mb-8">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 shadow-2xl">
+          <div className="relative bg-gradient-to-r from-gray-900/80 via-blue-900/80 to-purple-900/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-gray-700/50 shadow-2xl shadow-blue-500/10 overflow-hidden">
+          {/* Animated particles */}
+            <div className="absolute inset-0">
+              <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+              <div className="absolute bottom-6 left-6 w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-cyan-400 rounded-full animate-bounce"></div>
+            </div>
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
               Add New Product
             </h1>

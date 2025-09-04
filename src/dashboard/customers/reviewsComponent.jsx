@@ -183,23 +183,29 @@ const mockReviews = [
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
       <div className={`transition-all   duration-500 lg:ml-15 py-5 px-2 lg:px-9`}>
-      {/* Header */}
-      <header className="bg-gradient-to-r from-black via-gray-900 to-black border-b border-gray-800 sticky top-0 backdrop-blur-sm">
-        <div className="  px-4  py-4">
-          <div className="flex flex-col lg:flex-row items-center justify-between">
-            <div className="flex  items-center space-x-4">
-              <h1 className="text-2xl font-bold text-white">Reviews Dashboard</h1>
-              <span className="bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                Reviews Management
-              </span>
+       {/* Welcome Banner */}
+        <div className="mb-8 animate-slideDown">
+          <div className="relative bg-gradient-to-r from-gray-900/80 via-blue-900/80 to-purple-900/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-gray-700/50 shadow-2xl shadow-blue-500/10 overflow-hidden">
+            {/* Animated particles */}
+            <div className="absolute inset-0">
+              <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+              <div className="absolute bottom-6 left-6 w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-cyan-400 rounded-full animate-bounce"></div>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 rounded-full bg-yellow-600"></div>
-              <span className="text-sm text-white">Admin User</span>
+            
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
+                  Customers <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Reviews</span>! 
+                </h1>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  EasyShoppingMall Admin Dashboard
+                </p>
+              </div>
+             
             </div>
           </div>
         </div>
-      </header>
 
       <div className=" mx-auto px-4 py-8 space-y-8">
         {/* Statistics Cards */}

@@ -94,8 +94,8 @@ const TrafficAnalyticsDashboard = () => {
   )
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen relative overflow-hidden ">
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900">
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/20 via-transparent to-pink-900/20"></div>
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -119,7 +119,7 @@ const TrafficAnalyticsDashboard = () => {
       </div>
 
       <div className="relative z-10 p-4 md:p-6 lg:p-8">
-        <div className="max-w-7xl mx-auto space-y-6">
+        <div className="transition-all  duration-500 lg:ml-15 py-5 px-2 lg:px-9 space-y-6">
           <div className="animate-fade-in-up">
             <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 mb-6 shadow-2xl hover:bg-white/10 transition-all duration-500">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -130,7 +130,7 @@ const TrafficAnalyticsDashboard = () => {
                   <p className="text-gray-300 text-lg">Monitor your ecommerce performance and visitor insights</p>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex flex-col md:flex-row gap-2">
                   {["24h", "7d", "30d", "90d"].map((range) => (
                     <button
                       key={range}

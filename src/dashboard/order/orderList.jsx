@@ -285,31 +285,26 @@ const OrderManagement = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 p-6 overflow-hidden">
       <div className="transition-all duration-500 lg:ml-15 py-5 px-2 lg:px-9 mx-auto space-y-8">
-        <div
-          className={`transform transition-all duration-1000 ${animateCards ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-        >
-          <div className="flex flex-col lg:flex-row items-center justify-between mb-8">
-            <div className="text-center lg:text-left">
-              <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-                Order Management System
-              </h1>
-              <p className="text-xl text-gray-400">Manage your orders with style and efficiency</p>
+         {/* Welcome Banner */}
+        <div className="mb-8 animate-slideDown">
+          <div className="relative bg-gradient-to-r from-gray-900/80 via-blue-900/80 to-purple-900/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-gray-700/50 shadow-2xl shadow-blue-500/10 overflow-hidden">
+            {/* Animated particles */}
+            <div className="absolute inset-0">
+              <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+              <div className="absolute bottom-6 left-6 w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-cyan-400 rounded-full animate-bounce"></div>
             </div>
-
-            <div className="flex items-center gap-4 mt-6 lg:mt-0">
-              <div className="relative">
-                <button className="p-3 rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 hover:border-gray-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <Bell className="h-6 w-6" />
-                </button>
-                {notifications.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center font-bold">
-                    {notifications.length}
-                  </span>
-                )}
+            
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
+                  Order List & <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Add</span>! 
+                </h1>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  EasyShoppingMall Admin Dashboard
+                </p>
               </div>
-              <button className="p-3 rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 hover:border-gray-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <Settings className="h-6 w-6" />
-              </button>
+             
             </div>
           </div>
         </div>

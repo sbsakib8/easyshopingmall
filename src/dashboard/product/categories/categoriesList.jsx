@@ -139,34 +139,33 @@ const CategoriesList = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
 
-        {/* Header */}
-      <div className="bg-gradient-to-r from-slate-800/50 to-blue-800/50 backdrop-blur-lg border-b border-white/10">
-        <div className="px-6 lg:px-32 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <h1 className="text-2xl font-bold text-white">Category List</h1>
-              <div className="hidden md:flex items-center space-x-2 text-sm text-blue-200">
-                <Home className="w-4 h-4" />
-                <span>/</span>
-                <span>Dashboard</span>
-                <span>/</span>
-                <span className="text-blue-400">Category</span>
-              </div>
-            </div>
-            <button
-              onClick={() => setShowAddModal(true)}
-              className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-6 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
-            >
-              <Plus className="w-4 h-4" />
-              <span>Add Category</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      
+         
       {/* main component */}
       <div className={`transition-all  duration-500 lg:ml-10 lg:px-9`}>
-      
+       
+         {/* Welcome Banner */}
+        <div className="mb-8 animate-slideDown">
+          <div className="relative bg-gradient-to-r from-gray-900/80 via-blue-900/80 to-purple-900/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-gray-700/50 shadow-2xl shadow-blue-500/10 overflow-hidden">
+            {/* Animated particles */}
+            <div className="absolute inset-0">
+              <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+              <div className="absolute bottom-6 left-6 w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-cyan-400 rounded-full animate-bounce"></div>
+            </div>
+            
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
+                  Categories <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">List</span>! 
+                </h1>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  EasyShoppingMall Admin Dashboard
+                </p>
+              </div>
+             
+            </div>
+          </div>
+        </div>
 
       <div className="p-6">
         {/* Search and Filter Bar */}
