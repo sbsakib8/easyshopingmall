@@ -251,10 +251,10 @@ const Header = () => {
                   <div className="absolute -top-0.5 sm:-top-1 -right-0.5 sm:-right-1 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-pulse"></div>
                 </div>
                 <div className="transform group-hover:scale-105 transition-transform duration-300">
-                  <div className="flex flex-col sm:flex-row">
-                    <span className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">EASY</span>
-                    <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">SHOPPING</span>
-                    <span className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">MALL</span>
+                  <div className="flex flex-row ">
+                    <span className="text-[15px] sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">EASY</span>
+                    <span className="text-[15px] sm:text-xl lg:text-2xl font-bold text-gray-800">SHOPPING</span>
+                    <span className="text-[15px] sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">MALL</span>
                   </div>
                 </div>
               </div>
@@ -412,7 +412,7 @@ const Header = () => {
 
         {/* Enhanced Navigation Menu - Responsive */}
         <div className="bg-gradient-to-r from-slate-50 via-white to-slate-50 border-t border-gray-200/60 backdrop-blur-sm">
-          <div className="container mx-auto px-2 sm:px-4">
+          <div className="container mx-auto px-2 sm:px-4 hidden lg:block">
             <nav className="hidden lg:flex items-center justify-between py-3 lg:py-4">
               <div className="flex items-center space-x-4 lg:space-x-8">
                 {navItems.map((item, index) => (

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Star, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 const categoridata = [
   { id: 1, name: "Electronics", image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=300&q=80", items: "1,234", trending: true },
@@ -41,7 +42,7 @@ function Categories() {
           className={`flex gap-4 ${!paused ? "animate-marquee" : ""}`}
         >
           {loopData.map((item, idx) => (
-            <div
+            <Link href={"/shop"}
               key={idx}
               className="w-48 flex-shrink-0 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden cursor-pointer relative"
             >
@@ -75,11 +76,11 @@ function Categories() {
                     />
                   ))}
                 </div>
-                <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-1.5 rounded-md text-xs font-medium">
+                <button className="w-full bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 text-white py-1.5 rounded-md text-xs font-medium">
                   Explore Now
                 </button>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

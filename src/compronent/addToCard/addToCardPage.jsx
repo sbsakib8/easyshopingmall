@@ -409,11 +409,11 @@ const ShoppingCartComponent = () => {
                 </div>
 
                 {/* Checkout Button */}
-                <button className="w-full cursor-pointer bg-gradient-to-r  from-emerald-600 via-green-600 to-teal-600 hover:from-teal-600 hover:to-green-700 text-white py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                <Link href={"/checkout"} className="w-full cursor-pointer bg-gradient-to-r  from-emerald-600 via-green-600 to-teal-600 hover:from-teal-600 hover:to-green-700 text-white py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center space-x-2">
                   <CreditCard className="w-5 h-5" />
                   <span>Proceed to Checkout</span>
                   <ArrowRight className="w-5 h-5" />
-                </button>
+                </Link>
 
                 {/* Security Badge */}
                 <div className="flex items-center justify-center space-x-4 mt-4 text-xs text-gray-500">
