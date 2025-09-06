@@ -123,11 +123,12 @@ const DashboardNebver = ({ children }) => {
       id:8,
       label: "Settings",
       icon: Settings,
+      path: "/dashboard/settings/generalsettings",
       submenu: [
-        { path: "allproducts", id: "general", label: "General Settings", icon: Settings },
-        { path: "allproducts", id: "payment", label: "Payment Settings", icon: DollarSign },
-        { path: "allproducts", id: "shipping", label: "Shipping Settings", icon: Truck },
-        { path: "allproducts", id: "security", label: "Security", icon: Shield },
+        { path: "/settings/generalsettings", id: 33, label: "General Settings", icon: Settings },
+        { path: "/settings/paymentsettings", id: 34, label: "Payment Settings", icon: DollarSign },
+        { path: "/settings/shippingsettings", id: 35, label: "Shipping Settings", icon: Truck },
+        { path: "/settings/securitysettings", id: 36, label: "Security", icon: Shield },
       ],
     },
   ]
