@@ -6,23 +6,27 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
-function Signin() {
+const Signin=()=>{
 
   
   const [email, setEmail] = useState('');
   const [password, setpassword] = useState('');
   const [showpassword, setShowPassword] = useState(false);
+  const router = useRouter()
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log('Form submitted:', {email, password });
+    const user = {email, password }
+    console.log(' submitted:', user);
+    router.push("/")
   }
 
   return (
-    <div className='flex justify-center items-center h-auto py-20 bg-gray-100'>
+    <div className='flex justify-center items-center lg:mt-20 h-auto py-20 bg-gray-100'>
       <div className='bg-white p-8 rounded-lg shadow-md w-[95%] md:w-[500px] lg:w-[600px] '>
         <h1 className='text-[27px] font-semibold mb-4'>Sign In</h1>
         <form onSubmit={handleSubmit} className='space-y-4 mt-16'>

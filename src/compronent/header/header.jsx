@@ -251,18 +251,18 @@ const Header = () => {
                   <div className="absolute -top-0.5 sm:-top-1 -right-0.5 sm:-right-1 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-pulse"></div>
                 </div>
                 <div className="transform group-hover:scale-105 transition-transform duration-300">
-                  <div className="flex flex-row ">
-                    <span className="text-[15px] sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">EASY</span>
-                    <span className="text-[15px] sm:text-xl lg:text-2xl font-bold text-gray-800">SHOPPING</span>
-                    <span className="text-[15px] sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">MALL</span>
-                  </div>
+                  <Link href={"/"} className="flex flex-row ">
+                    <span className="text-[13px] sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">EASY</span>
+                    <span className="text-[13px] sm:text-xl lg:text-2xl font-bold text-gray-800">SHOPPING</span>
+                    <span className="text-[13px] sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">MALL</span>
+                  </Link>
                 </div>
               </div>
             </div>
 
             {/* Enhanced Search Bar  */}
             <div className="hidden lg:flex flex-1 max-w-3xl mx-8">
-              <div className="flex w-full shadow-lg rounded-2xl overflow-hidden border border-gray-200/60 bg-white/90 backdrop-blur-sm">
+              <div className="flex w-full shadow-lg rounded-2xl z-50  border border-gray-200/60 bg-white/90 backdrop-blur-sm">
                 {/* Categories Button */}
                 <div className="relative">
                   <button
@@ -276,14 +276,14 @@ const Header = () => {
                   
                   {/* Enhanced Categories Dropdown */}
                   {isCategoriesOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-md border border-gray-200/60 rounded-2xl shadow-2xl z-50 animate-in fade-in slide-in-from-top-5 duration-300 overflow-hidden">
+                    <div className="absolute  top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-md border border-gray-200/60 rounded-2xl shadow-2xl z-50 animate-in fade-in slide-in-from-top-5 duration-300 ">
                       <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-4">
                         <h3 className="text-white font-bold text-lg flex items-center space-x-2">
                           <Star className="w-5 h-5 animate-spin" />
                           <span>Shop by Category</span>
                         </h3>
                       </div>
-                      <div className="grid grid-cols-1 py-2 max-h-96 overflow-y-auto">
+                      <div className="grid grid-cols-1 z-50 py-2 max-h-96 overflow-y-scroll">
                         {categories.map((category, index) => (
                           <div key={index} className="group relative">
                             <button className="flex items-center space-x-3 w-full px-6 py-4 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50 transition-all duration-300 group">
@@ -299,13 +299,13 @@ const Header = () => {
                               </div>
                               <div className="py-2">
                                 {category.subcategories.map((sub, subIndex) => (
-                                  <a
+                                  <Link
                                     key={subIndex}
                                     href="#"
                                     className="block px-4 py-3 text-gray-600 hover:text-emerald-600 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50 transition-all duration-200 font-medium"
                                   >
                                     {sub}
-                                  </a>
+                                  </Link>
                                 ))}
                               </div>
                             </div>
@@ -335,15 +335,13 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Enhanced Right Side Icons - Fully Responsive */}
             <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
-              {/* Account - Hidden on small screens */}
-              <Link href="/account" className="hidden lg:flex items-center space-x-2 text-gray-700 hover:text-emerald-600 transition-all duration-300 cursor-pointer group">
+              <Link href="/account" className="flex items-center  text-gray-700 hover:text-emerald-600 transition-all duration-300 cursor-pointer group">
                 <div className="p-2 rounded-xl bg-gradient-to-r from-gray-100 to-gray-50 group-hover:from-emerald-100 group-hover:to-teal-100 transition-all duration-300 shadow-sm">
                   <User size={18} className="group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 font-medium">Account</div>
+                  <div className=" hidden lg:block text-xs text-gray-500 font-medium">Account</div>
                 </div>
               </Link>
 

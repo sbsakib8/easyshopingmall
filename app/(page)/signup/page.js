@@ -5,6 +5,8 @@ import TextField from '@mui/material/TextField';
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from 'react';
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 function Signup() {
@@ -14,15 +16,18 @@ function Signup() {
   const [number, setNumber] = useState('');
   const [password, setpassword] = useState('');
   const [showpassword, setShowPassword] = useState(false);
+  const router = useRouter()
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log('Form submitted:', { fullName, email, number, password });
+    const user = { fullName, email, number, password }
+    console.log('submitted:', user );
+    router.push("/signin")
   }
 
   return (
-    <div className='flex justify-center items-center h-auto py-20 bg-gray-100'>
+    <div className='flex justify-center lg:mt-20 items-center h-auto py-20 bg-gray-100'>
       <div className='bg-white p-8 rounded-lg shadow-md w-[95%] md:w-[500px] lg:w-[600px] '>
         <h1 className='text-2xl font-medium mb-4'>Sign Up</h1>
         <form onSubmit={handleSubmit} className='space-y-4 mt-16'>
@@ -64,7 +69,7 @@ function Signup() {
               <button>Sign Up with Google</button>
             
           </div>
-          <p className='text-center text-sm text-gray-600'>Already have an account? <a href='/signin' className='text-blue-600 hover:underline'>SignIn</a></p>
+          <p className='text-center text-sm text-gray-600'>Already have an account? <Link href='/signin' className='text-blue-600 hover:underline'>SignIn</Link></p>
         </form>
       </div>
     </div>

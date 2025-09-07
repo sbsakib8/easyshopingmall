@@ -1,7 +1,10 @@
+import CustomerGroups from "@/src/dashboard/customers/customerGroups"
 
 const page=()=> {
   return (
-    <div>page</div>
+    <div>
+      <CustomerGroups/>
+    </div>
   )
 }
 
